@@ -1,0 +1,11 @@
+{
+  "name": "device-data",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "update": "node scripts/phones-fetch.js"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10"
+  }
+}
