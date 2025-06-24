@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm ci          # installs dayjs from package.json
+      - run: npm install --no-audit --no-fund # installs dayjs from package.json
 
       - run: npm run update  # calls scripts/phones-fetch.js
 
