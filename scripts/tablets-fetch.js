@@ -1,0 +1,25 @@
+/**
+ * tablets-fetch.js – refreshes /data/tablets.json
+ * Icecat categoryId for "Tablets" ≈ 821
+ */
+import fs from 'fs/promises';
+import fetch from 'node-fetch';
+import dayjs from 'dayjs';
+
+const CATEGORY_ID = 821;
+const FIELDS = 'brand,name,product_code,short_description,ean_upcs';
+const DEST = 'data/tablets.json';
+const ICECAT_AUTH = process.env.ICECAT_AUTH;
+
+(async () => {
+  const res = await fetch(
+    `https://api.icecat.biz/products?icecat_id=${CATEGORY_ID}&fields=${FIELDS}&limit=10000`,
+    { headers: { Authorization: `Basic ${ICECAT_AUTH}` } }
+  );
+  const json = await res.json();
+  await fs.writeFile(
+    DEST,
+    JSON.stringify({ updated: dayjs().toISOString(), items: json.data }, null, 2)
+  );
+  console.log(`Tablets fetched: ${json.data.length}`);
+})();
