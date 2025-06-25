@@ -20,10 +20,10 @@ jobs:
         with:
           node-version: 20
 
-- name: Run curl smoke test
-  run: |
-    chmod +x scripts/curl-test.sh
-    ICECAT_AUTH="${{ secrets.ICECAT_B64 }}" scripts/curl-test.sh
+      - name: Run curl smoke test
+        run: |
+          chmod +x scripts/curl-test.sh
+          ICECAT_AUTH="${{ secrets.ICECAT_B64 }}" scripts/        curl-test.sh
 
       - run: npm install --no-audit --no-fund # installs dayjs from package.json
 
