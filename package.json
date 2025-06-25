@@ -3,12 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "update:phones":    "node scripts/phones-fetch.js",
-    "update:laptops":   "node scripts/laptops-fetch.js",
-    "update:tablets":   "node scripts/tablets-fetch.js",
-    "update:tvs":       "node scripts/tvs-fetch.js",
-    "update:streamers": "node scripts/streaming-fetch.js",
-    "update": "npm run update:phones && npm run update:laptops && npm run update:tablets && npm run update:tvs && npm run update:streamers"
+    "update": "node scripts/update-all.js"
   },
   "dependencies": {
     "dayjs": "^1.11.10"
